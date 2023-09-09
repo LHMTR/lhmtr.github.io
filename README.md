@@ -4,7 +4,8 @@
 详见[Wiki](https://lhmtr.fandom.com)
 ### 贡献
 做出贡献？详见[贡献者指南](https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
-贡献者表：
+
+组织所有人表：
 <table>
   <tr>
     <td align="center" style="border-width:0px">
@@ -31,7 +32,7 @@
 詳見[Wiki](https://lhmtr.fandom.com)
 ### 貢獻
 做出貢獻？詳見[貢獻者指南](https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
-貢獻者表：
+組織所有者表：
 <table>
   <tr>
     <td align="center" style="border-width:0px">
@@ -64,7 +65,7 @@ See [Wiki] (https://lhmtr.fandom.com) for details
 
 Contribute? See [Contributor's Guide] (https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
 
-Contributor list:
+Organization Member list:
 
 <table>
  <tr>
