@@ -5,23 +5,22 @@
 ### 贡献
 做出贡献？详见[贡献者指南](https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
 
-组织所有人表：
+贡献者表：
 <table>
   <tr>
     <td align="center" style="border-width:0px">
       <a herf="https://github.com/YYLWZDXPGD">
-        <img src="https://github.com/YYLWZDXPGD.png" width="100px;" alt="" /><br/>
-        <b>YYLWZDXPGD/YL Yang</b><br/>
+        <img src="https://github.com/YYLWZDXPGD.png" width="100px;" alt=""><br/>
+        <b>YYLWZDXPGD/组织所有人</b><br/>
       </a>
-      <sub>组织所有者</sub><br/>
-       <tr>
+    </td>
+  <tr>
     <td align="center" style="border-width:0px">
-      <a herf="https://github.com/YYLWZDXPGD">
-        <img src="https://github.com/swcdjzc.png" width="100px;" alt="" /><br/>
-        <b>swcdjzc/WC Shan</b><br/>
-</bbr/>
+      <a herf="https://github.com/swcdjzc">
+        <img src="https://github.com/swcdjzc.png" width="100px;" alt=""><br/>
+        <b>>swcdjzc/组织所有人</b><br/>
       </a>
-      <sub>组织所有者，绿海各分公司管理者</sub><br/>
+    </td>
 
 #### 加入我们
 想出现在上面的名单上吗？那就加入我们！
@@ -32,24 +31,23 @@
 詳見[Wiki](https://lhmtr.fandom.com)
 ### 貢獻
 做出貢獻？詳見[貢獻者指南](https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
-組織所有者表：
+貢獻者表：
 <table>
   <tr>
     <td align="center" style="border-width:0px">
       <a herf="https://github.com/YYLWZDXPGD">
-        <img src="https://github.com/YYLWZDXPGD.png" width="100px;" alt="" /><br/>
-        <b>YYLWZDXPGD/YL Yang</b><br/>
+        <img src="https://github.com/YYLWZDXPGD.png" width="100px;" alt=""><br/>
+        <b>YYLWZDXPGD/組織所有人</b><br/>
       </a>
-      <sub>組織所有者</sub><br/>
-       <tr>
+    </td>
+<table>
+  <tr>
     <td align="center" style="border-width:0px">
-      <a herf="https://github.com/YYLWZDXPGD">
-        <img src="https://github.com/swcdjzc.png" width="100px;" alt="" /><br/>
-        <b>swcdjzc/WC Shan</b><br/>
-</bbr/>
+      <a herf="https://github.com/swcdjzc">
+        <img src="https://github.com/swcdjzc.png" width="100px;" alt=""><br/>
+        <b>>swcdjzc/組織所有人</b><br/>
       </a>
-      <sub>組織所有者，綠海各分公司管理者</sub><br/>
-
+    </td>
 
 
 #### 加入我們
@@ -65,7 +63,7 @@ See [Wiki] (https://lhmtr.fandom.com) for details
 
 Contribute? See [Contributor's Guide] (https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
 
-Organization Member list:
+Contributor list:
 
 <table>
  <tr>
