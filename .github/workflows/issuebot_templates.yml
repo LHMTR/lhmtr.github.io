@@ -1,4 +1,4 @@
-name: Issue bot
+name: Issue bot templates
 
 on:
   issues:
@@ -7,7 +7,7 @@ on:
 jobs:
   updateGallery:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.body, This is new idea. They are meant for BOTS ONLY!!!')
+    if: contains(github.event.issue.body, This is new mod template. They are meant for BOTS ONLY!!!')
     steps:
       - uses: actions/checkout@v3
         with:
@@ -68,7 +68,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_PREFIX: "bot-"
           PULL_REQUEST_FROM_BRANCH: bot-${{ github.event.issue.number }}
-          PULL_REQUEST_BRANCH: "main"
+          PULL_REQUEST_BRANCH: "master"
           PULL_REQUEST_TOKEN: ${{ secrets.RMG_BUILD_AND_RELEASE }}
           PULL_REQUEST_TITLE: ${{ github.event.issue.title }}
           PULL_REQUEST_BODY: "Hi, I'm the lhmtr bot updating _${{ github.event.issue.title }}_ on behalf of @${{ github.event.issue.user.login }}.\nThis should fix #${{ github.event.issue.number }}"
