@@ -3,7 +3,7 @@
 ### 公司和运营
 详见[Wiki](https://lhmtr.fandom.com)
 ### 贡献
-做出贡献？详见[贡献者名单](https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
+做出贡献？详见[贡献者指南](https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
 贡献者表：
 <table>
   <tr>
@@ -21,3 +21,6 @@
 </bbr/>
       </a>
       <sub>组织所有者，绿海各分公司管理者</sub><br/>
+
+#### 加入我们
+想出现在上面的名单上吗？那就加入我们！
