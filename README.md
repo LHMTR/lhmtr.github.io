@@ -15,10 +15,10 @@
       </a>
     </td>
   <tr>
-    <td align="center" style="border-width:0px">
+  <td align="center" style="border-width:0px">
       <a herf="https://github.com/swcdjzc">
         <img src="https://github.com/swcdjzc.png" width="100px;" alt=""><br/>
-        <b>>swcdjzc/组织所有人</b><br/>
+        <b>swcdjzc/组织所有人</b><br/>
       </a>
     </td>
 
@@ -45,7 +45,7 @@
     <td align="center" style="border-width:0px">
       <a herf="https://github.com/swcdjzc">
         <img src="https://github.com/swcdjzc.png" width="100px;" alt=""><br/>
-        <b>>swcdjzc/組織所有人</b><br/>
+        <b>swcdjzc/組織所有人</b><br/>
       </a>
     </td>
 
