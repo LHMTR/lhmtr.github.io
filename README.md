@@ -66,21 +66,20 @@ Contribute? See [Contributor's Guide] (https://github.com/LHMTR/lhmtr.github.io/
 Contributor list:
 
 <table>
- <tr>
-   <td align="center" style="border-width:0px">
-     <a herf="https://github.com/YYLWZDXPGD">
-       <img src="https://github.com/YYLWZDXPGD.png" width="100px;" alt="" /><br/>
-       <b>YYLWZDXPGD/YL Yang</b><br/>
-     </a>
-     <sub>Organization owner</sub><br/>
- <tr>
-   <td align="center" style="border-width:0px">
-     <a herf="https://github.com/YYLWZDXPGD">
-       <img src="https://github.com/swcdjzc.png" width="100px;" alt="" /><br/>
-       <b>swcdjzc/WC Shan</b><br/>
-</bbr/>
+  <tr>
+    <td align="center" style="border-width:0px">
+      <a herf="https://github.com/YYLWZDXPGD">
+        <img src="https://github.com/YYLWZDXPGD.png" width="100px;" alt=""><br/>
+        <b>YYLWZDXPGD/Organization Member</b><br/>
       </a>
-      <sub>Organization owner, manager of each branch of Green Sea</sub><br/>
+    </td>
+  <tr>
+    <td align="center" style="border-width:0px">
+      <a herf="https://github.com/swcdjzc">
+        <img src="https://github.com/swcdjzc.png" width="100px;" alt=""><br/>
+        <b>>swcdjzc/Organization Member</b><br/>
+      </a>
+    </td>
 
 #### Join us
 
