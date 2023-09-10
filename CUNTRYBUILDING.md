@@ -62,7 +62,8 @@
         <b>swcdjzc/WC Shan</b><br/>
       </a>
     </td>
-    ##Join us
+  
+## Join us
 You came at a great time! We still need the following positions
 Rights:
 - 1. Can become our member
