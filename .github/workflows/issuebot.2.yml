@@ -1,4 +1,4 @@
-name: Issue bot No.2
+name: Issue bot 2
 
 on:
   issues:
@@ -7,7 +7,7 @@ on:
 jobs:
   updateGallery:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.body, This is new mod template. They are meant for BOTS ONLY!!!')
+    if: contains(github.event.issue.body, This is new template')
     steps:
       - uses: actions/checkout@v3
         with:
