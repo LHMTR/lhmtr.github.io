@@ -1,4 +1,4 @@
-name: Issue bot
+name: Issue bot 1
 
 on:
   issues:
@@ -7,7 +7,7 @@ on:
 jobs:
   updateGallery:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.body, I want join you or create a new organization to LHMTR!')
+    if: contains(github.event.issue.body,This is my new organization')
     steps:
       - uses: actions/checkout@v3
         with:
