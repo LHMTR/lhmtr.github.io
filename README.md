@@ -57,11 +57,11 @@
 
 ### Company and Operations
 
-See [Wiki] (https://lhmtr.fandom.com) for details
+See [Wiki](https://lhmtr.fandom.com) for details
 
 ### Contribution
 
-Contribute? See [Contributor's Guide] (https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
+Contribute? See [Contributor's Guide](https://github.com/LHMTR/lhmtr.github.io/blob/master/CUNTRYBUILDING.md)
 
 Contributor list:
 
@@ -77,12 +77,6 @@ Contributor list:
     <td align="center" style="border-width:0px">
       <a herf="https://github.com/swcdjzc">
         <img src="https://github.com/swcdjzc.png" width="100px;" alt=""><br/>
-        <b>>swcdjzc/Organization Member</b><br/>
+        <b>swcdjzc/Organization Member</b><br/>
       </a>
     </td>
-
-#### Join us
-
-Do you want to appear on the list above? Then join us!
-
-See the Contributor's Guide for details
