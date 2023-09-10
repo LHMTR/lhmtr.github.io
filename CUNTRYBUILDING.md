@@ -1,6 +1,6 @@
 # 简体中文
 ## 贡献者名单
-因显示原因，请前往下文英语表哥查看
+因显示原因，请前往下文英语表格查看
 <table>
   <tr>
     <td align="center" style="border-width:0px">
@@ -47,22 +47,7 @@
 我们会在周4、周5审核，周6测试，周日合并，周一公开！
 # English
 ## Cuntrybuilding list
-<table>
-  <tr>
-    <td align="center" style="border-width:0px">
-      <a herf="https://github.com/YYLWZDXPGD">
-        <img src="https://github.com/YYLWZDXPGD.png" width="100px;" alt=""><br/>
-        <b>YYLWZDXPGD/YL Yang</b><br/>
-      </a>
-    </td>
-  <tr>
-    <td align="center" style="border-width:0px">
-      <a herf="https://github.com/swcdjzc">
-        <img src="https://github.com/swcdjzc.png" width="100px;" alt=""><br/>
-        <b>swcdjzc/WC Shan</b><br/>
-      </a>
-    </td>
-  
+
 ## Join us
 You came at a great time! We still need the following positions
 Rights:
