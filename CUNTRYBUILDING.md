@@ -1,6 +1,6 @@
 # 简体中文
 ## 贡献者名单
-因显示原因，请前往下文英语表哥查看
+因显示原因，请前往下文英语表格查看
 <table>
   <tr>
     <td align="center" style="border-width:0px">
