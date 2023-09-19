@@ -1,6 +1,6 @@
 ---
 name: Donation
-about: About donation/关于捐款
+about: About donation/关于捐款（只可以在主存储库！/Only main repo!)
 title: Donation：Donation xxx Yuan
 labels: 捐款/Donation
 assignees: ''
