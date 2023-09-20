@@ -5,7 +5,7 @@ on:
     types: [opened, edited]
 
 jobs:
-  updateGallery:
+  updateOrganization:
     runs-on: ubuntu-latest
     if: contains(github.event.issue.body,This is my new organization')
     steps:
