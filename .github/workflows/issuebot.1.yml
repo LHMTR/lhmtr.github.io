@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.issue.body,This is my new organization')
     steps:
-      - uses: actions/checkout@v3
+      - uses: YYLWZDXPGD/checkout@v3
         with:
-          token: ${{ secrets.RMG_BUILD_AND_RELEASE }}
+          token: ${{ secrets.LHMTR_BUILD_AND_RELEASE }}
           fetch-depth: 0 # Fetch all to get authors of every template.
 
       - uses: actions/setup-node@v2
@@ -21,7 +21,7 @@ jobs:
       - run: npm ci
         working-directory: scripts
 
-      - name: Setup firefox
+      - name: Setup firefoxY
         uses: browser-actions/setup-firefox@v1
         with:
           firefox-version: latest
@@ -66,9 +66,9 @@ jobs:
         uses: vsoch/pull-request-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_PREFIX: "bot-"
+          BRANCH_PREFIX: "orgbot-"
           PULL_REQUEST_FROM_BRANCH: bot-${{ github.event.issue.number }}
           PULL_REQUEST_BRANCH: "master"
-          PULL_REQUEST_TOKEN: ${{ secrets.RMG_BUILD_AND_RELEASE }}
+          PULL_REQUEST_TOKEN: ${{ secrets.LHMTR_BUILD_AND_RELEASE }}
           PULL_REQUEST_TITLE: ${{ github.event.issue.title }}
           PULL_REQUEST_BODY: "Hi, I'm the lhmtr bot updating _${{ github.event.issue.title }}_ on behalf of @${{ github.event.issue.user.login }}.\nThis should fix #${{ github.event.issue.number }}"
