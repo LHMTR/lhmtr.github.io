@@ -4,3 +4,27 @@
 <meta charset="utf-8">
 <title>组织信息/Organization's profle</title>
 </head>
+<body>
+  <h1>绿海地铁组织展示厅</h1>
+  <h2>⭐️编辑精选</h2>
+  <style>
+body {
+	background-color:#FFFFFF;
+}
+h1 {
+	color:green;
+	text-align:center;
+}
+    </style>
+  <hr>
+  <script>
+var JSONObject= {
+	"name":"绿海地铁",
+	"url":"lhmtr.github.io", 
+	"slogan":"这是绿海地铁！"
+};网站名称: <span id="jname"></span><br /> 
+document.getElementById("jname").innerHTML=JSONObject.name 
+document.getElementById("jurl").innerHTML=JSONObject.url 
+document.getElementById("jslogan").innerHTML=JSONObject.slogan 
+</script>
+</body>
