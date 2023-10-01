@@ -45,19 +45,19 @@
 .
 
 
-- 模版、画廊审核员：2位
-- 工作流和分支管理员：1位
-- 社区论坛和新闻管理员：1位
-- 网页编辑员：1位
-- 文档和视频管理员：1位
-- [Wiki](https://lhmtr.fandom.com)管理员和编写员：2位
+- 组织fork管理员：3位
+- 视频fork管理员：1位
+- 画廊fork管理员：2位
+- 模组fork管理员：2位
+- Wiki管理员和编写员：2位
+- 社区管理员：2位
 
 请加入我们的[Slack](https://join.slack.com/t/lhmtr/shared_invite/zt-22xql3rfm-Xy9_sDTPiWj~c4gxIkVD6Q)来交流
 此外，贡献画廊/现实模组也可以得到上面的权利！（成为会员除外）
 ## 捐款
 帮我们升级Github和Slack！升级两个月便可以拥有上面的权利（成为会员除外)
 ## 画廊、模版和调色板捐赠
-提交现实中有的这些！提供25个便可拥有上面的权利！
+提交现实中有的这些！提供45个便可拥有上面的权利！
 请在对应仓库的issue里发出一个新issue，并在其中说：This is my new__（提交的是什么）
 我们会在周三、周四审核，周五合并！
 ## 贡献奖励和方法
@@ -70,8 +70,7 @@
 - 捐款1人民币可以获得25绿宝石
 - 提交一个模组模版（包括幻想）可以获得100绿宝石
 - 提交一个调色板或画廊可以获得50绿宝石
-- 提交的每个文件每0.1kb可以获得1绿宝石
-- 每20个超过15个字的行可以获得5绿宝石
+- 提交的每个文件每1kb可以获得1绿宝石
 请前往重生点的绿宝石领取点领取，提交我们给的兑换码就可以获得，我们会发邮件给您，请注意您的垃圾邮箱有没有我们发给您的邮件（堆积的兑换码会在一周内过期）
 如果您做不了，您也可以做每日任务获得绿宝石
 每日任务会获得50绿宝石，请前往重生点站前广场领取
@@ -91,12 +90,10 @@ Rights:
     
 .
     
-- Template and gallery reviewers: 2 person
-- Workflow and branch administrator: 1 person
-- 1 community forum and news administrator
-- Web editor: 1 person
-- Document and video administrator: 1 person
-- [Wiki](https://lhmtr.fandom.com)Administrator and Writer: 2
+- Organization fork member：3 person
+- Video fork member：1 person
+- Gallery fork member：1 person
+- Wiki Administrator and Writer: 2 person
 Please join our [Slack](https://join.slack.com/t/lhmtr/shared_invite/zt-22xql3rfm-Xy9_sDTPiWj~c4gxIkVD6Q) to communicate
 In addition, contributing galleries/reality modules can also receive the above rights! (Except for becoming a member)
 ## Donations
