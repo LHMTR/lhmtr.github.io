@@ -1,0 +1,11 @@
+name: Organization Issue Bot
+on:
+  push:
+     branches:
+       -'new/**'
+jobs:
+  build:
+    runs-on: ubuntu-latext
+    steps:
+      - name: Create a Pull Request
+        uses: actions/
