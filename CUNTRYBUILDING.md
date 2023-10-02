@@ -45,11 +45,11 @@
 .
 
 
-- 组织fork管理员：3位
+- 组织fork管理员：1位
 - 视频fork管理员：1位
-- 画廊fork管理员：2位
-- 模组fork管理员：2位
-- Wiki管理员和编写员：2位
+- 画廊fork管理员：1位
+- 模组fork管理员：1位
+- 维基fork管理员：1位
 - 社区管理员：2位
 
 请加入我们的[Slack](https://join.slack.com/t/lhmtr/shared_invite/zt-22xql3rfm-Xy9_sDTPiWj~c4gxIkVD6Q)来交流
@@ -90,10 +90,10 @@ Rights:
     
 .
     
-- Organization fork member：3 person
+- Organization fork member：1 person
 - Video fork member：1 person
 - Gallery fork member：1 person
-- Wiki Administrator and Writer: 2 person
+- Wiki fork member: 1 person
 Please join our [Slack](https://join.slack.com/t/lhmtr/shared_invite/zt-22xql3rfm-Xy9_sDTPiWj~c4gxIkVD6Q) to communicate
 In addition, contributing galleries/reality modules can also receive the above rights! (Except for becoming a member)
 ## Donations
