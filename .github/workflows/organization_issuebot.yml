@@ -1,4 +1,4 @@
-name: Issue Workflow
+name: Organization Issue Bot
 
 on:
   issues:
