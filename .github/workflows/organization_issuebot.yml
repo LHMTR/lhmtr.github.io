@@ -1,0 +1,56 @@
+name: Issue Workflow
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  extract_and_create_branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if issue contains specific words
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const issue = `${context.payload.issue.title} ${context.payload.issue.body}`;
+            if (issue.includes(This is my new organization.')) {
+              console.log('Issue contains specific words.');
+              return true;
+            } else {
+              console.log('Issue does not contain specific words.');
+              return false;
+            }
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Extract file
+        run: |
+          # Add shell command to extract the file
+          cp <file_to_extract> extracted_file.txt
+      
+      - name: Create new branch
+        run: |
+          branch_number=$(git rev-list --count HEAD..New-Organizations) # Get the number of commits between the current branch and the main branch
+          new_branch_name=organization-$(printf "%04d" $((branch_number+1))) # Create a new branch name with the incremented number
+          git checkout -b $new_branch_name
+      
+      - name: Upload file
+        uses: actions/upload-artifact@v2
+        with:
+          name: extracted_file
+          path: extracted_file.txt
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          title: ${{ github.event.issue.title }}
+          body: |
+            Hi, I am LHMTR Organization Bot.
+            I create a pull request of "{{{{ github.actor }}}}''s '{{{{ github.event.issue.title }}}'".
+          labels: 组织/Organization
+          reviewers: YYLWZDXPGD
+          assignees: YYLWZDXPGD
