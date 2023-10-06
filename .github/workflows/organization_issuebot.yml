@@ -33,7 +33,7 @@ jobs:
       - name: Create new branch
         run: |
           branch_number=$(git rev-list --count HEAD..New-Organizations) # Get the number of commits between the current branch and the main branch
-          new_branch_name=organization-$(printf "%04d" $((branch_number+1))) # Create a new branch name with the incremented number
+          new_branch_name=New-Organization-$(printf "%04d" $((branch_number+1))) # Create a new branch name with the incremented number
           git checkout -b $new_branch_name
       
       - name: Upload file
