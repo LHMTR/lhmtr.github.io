@@ -1,16 +1,105 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>绿海地铁LHMTR</title>
-    </head>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>绿海地铁LHMTR</title>
+  <style>
+    body {
+      font-family: "微软雅黑", sans-serif;
+      background-color: #FFF;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      text-align: center;
+      font-size: 24px;
+      margin: 20px 0;
+    }
+
+    .button {
+      display: block;
+      width: 252px;
+      padding: 10px;
+      background-color: #FFF;
+      color: #000;
+      border-radius: 5px;
+      text-align: center;
+      margin: 10px auto;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #CCC;
+    }
+
+    #docs {
+      background-color: #CCC;
+    }
+
+    #mods {
+      background-color: #CCC;
+    }
+
+    #organizations {
+      background-color: #CCC;
+    }
+
+    #codapp {
+      background-color: #CCC;
+    }
+
+    .divider {
+      height: 32px;
+      width: 100%;
+      border-top: 1px solid #CCC;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .footer img {
+      height: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
 <body>
-<h1>绿海地铁LHMTR</h1>
-    <img decoding="async" src="https://github.com/LHMTR/lhmtr.github.io/blob/master/images/lhlogo.png" width="125" height="125">
-    <hr>
-    <a href="https://lhmtr.github.io/gallery">
-    <img decoding="async" src="https/github.com/LHMTR/lhmtr.github.io/blob/master/iamges/gallery.png" width="100" height="50">
-</a>
-    <hr>
+  <div class="header">
+    <h1>绿海地铁工具 LHMTR Apps</h1>
+  </div>
+
+  <a class="button" id="docs" href="https://lhmtr.github.io/docs">文档/Docs</a>
+  <a class="button" id="mods" href="https://lhmtr.github.io/mods">模组/Mods</a>
+  <a class="button" id="organizations" href="https://lhmtr.github.io/organizations">组织/Organizations</a>
+  <a class="button" id="codapp" href="https://lhmtr.github.io/codapp">代码编辑/Codapp</a>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <img src="https://github.com/LHMTR/lhmtr.github.io/lhlogo.png" alt="Logo">
+  </div>
+
+  <script>
+    function toggleTheme() {
+      var body = document.getElementsByTagName("body")[0];
+      var button = document.getElementById("toggle");
+      
+      if (button.innerHTML === "白天") {
+        body.style.backgroundColor = "#FFF";
+        body.style.color = "#000";
+        button.innerHTML = "夜晚";
+      } else {
+        body.style.backgroundColor = "#0F0A26";
+        body.style.color = "#000";
+        button.innerHTML = "白天";
+      }
+    }
+  </script>
 </body>
 </html>
