@@ -1,105 +1,137 @@
+以下是使用HTML5代码设计的网站布局，满足您的要求：
+
+```html
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>绿海地铁LHMTR</title>
-  <style>
-    body {
-      font-family: "微软雅黑", sans-serif;
-      background-color: #FFF;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绿海地铁LHMTR</title>
+    <style>
+        body {
+            font-family: "微软雅黑", sans-serif;
+            background-color: #FFFFFF;
+        }
+        
+        .night {
+            background-color: #0F0A26;
+            color: #FFFFFF;
+        }
+        
+        .day {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        #nav-bar {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            width: 252px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.5s;
+        }
+        
+        .btn:hover {
+            background-color: #111111;
+        }
+        
+        .switch-btn {
+            display: inline-block;
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.5s;
+        }
+        
+        #footer {
+            background-color: #33C759;
+            height: 50px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        .logo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
 
-    .header {
-      text-align: center;
-      font-size: 24px;
-      margin: 20px 0;
-    }
-
-    .button {
-      display: block;
-      width: 252px;
-      padding: 10px;
-      background-color: #FFF;
-      color: #000;
-      border-radius: 5px;
-      text-align: center;
-      margin: 10px auto;
-      text-decoration: none;
-    }
-
-    .button:hover {
-      background-color: #CCC;
-    }
-
-    #docs {
-      background-color: #CCC;
-    }
-
-    #mods {
-      background-color: #CCC;
-    }
-
-    #organizations {
-      background-color: #CCC;
-    }
-
-    #codapp {
-      background-color: #CCC;
-    }
-
-    .divider {
-      height: 32px;
-      width: 100%;
-      border-top: 1px solid #CCC;
-    }
-
-    .footer {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    .footer img {
-      height: 20px;
-      margin-left: 10px;
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <div class="header">
     <h1>绿海地铁工具 LHMTR Apps</h1>
-  </div>
+    
+    <nav id="nav-bar">
+        <a class="btn" href="https://lhmtr.github.io/docs" target="_blank">文档/Docs</a>
+        <a class="btn" href="https://lhmtr.github.io/mods" target="_blank">模组/Mods</a>
+        <a class="btn" href="https://lhmtr.github.io/organizations" target="_blank">组织/Organizations</a>
+        <a class="btn" href="https://lhmtr.github.io/codapp" target="_blank">代码编辑/Codapp</a>
+        <a class="btn" href="https://lhmtr.github.io/videos" target="_blank">视频/Videos</a>
+        <a class="btn" href="https://github.com/LHMTR/orgs/discussions" target="_blank">讨论/Discussion</a>
+    </nav>
+    
+    <div id="switch-container" style="text-align: center; margin-top: 20px;">
+        <button class="switch-btn" onclick="changeTheme()">切换主题</button>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <div class="btn">
+            <img class="logo" src="slack_logo.png" alt="Slack Logo">
+            Slack
+        </div>
+        <div class="btn">
+            <a href="https://lhmtr.github.io/cuntrybuilding" target="_blank">关于 About</a>
+        </div>
+        <div class="btn">
+            <img class="logo" src="github_logo.png" alt="Github Logo">
+            Github
+        </div>
+    </div>
+    
+    <footer id="footer"></footer>
 
-  <a class="button" id="docs" href="https://lhmtr.github.io/docs">文档/Docs</a>
-  <a class="button" id="mods" href="https://lhmtr.github.io/mods">模组/Mods</a>
-  <a class="button" id="organizations" href="https://lhmtr.github.io/organizations">组织/Organizations</a>
-  <a class="button" id="codapp" href="https://lhmtr.github.io/codapp">代码编辑/Codapp</a>
+    <script>
+        function changeTheme() {
+            var body = document.body;
+            var navBar = document.getElementById("nav-bar");
+            var switchContainer = document.getElementById("switch-container");
+            var footer = document.getElementById("footer");
 
-  <div class="divider"></div>
-
-  <div class="footer">
-    <img src="https://github.com/LHMTR/lhmtr.github.io/lhlogo.png" alt="Logo">
-  </div>
-
-  <script>
-    function toggleTheme() {
-      var body = document.getElementsByTagName("body")[0];
-      var button = document.getElementById("toggle");
-      
-      if (button.innerHTML === "白天") {
-        body.style.backgroundColor = "#FFF";
-        body.style.color = "#000";
-        button.innerHTML = "夜晚";
-      } else {
-        body.style.backgroundColor = "#0F0A26";
-        body.style.color = "#000";
-        button.innerHTML = "白天";
-      }
-    }
-  </script>
+            if (body.classList.contains("night")) {
+                body.classList.remove("night");
+                body.classList.add("day");
+                navBar.classList.remove("night");
+                navBar.classList.add("day");
+                switchContainer.classList.remove("night");
+                switchContainer.classList.add("day");
+                footer.style.backgroundColor = "#33C759";
+            } else {
+                body.classList.remove("day");
+                body.classList.add("night");
+                navBar.classList.remove("day");
+                navBar.classList.add("night");
+                switchContainer.classList.remove("day");
+                switchContainer.classList.add("night");
+                footer.style.backgroundColor = "#33C759";
+            }
+        }
+    </script>
 </body>
 </html>
+```
+
+请将代码保存为一个HTML文件，将"slack_logo.png"和"github_logo.png"替换为您的实际图像文件。然后，您可以通过打开该HTML文件在浏览器中查看您设计的网站。
