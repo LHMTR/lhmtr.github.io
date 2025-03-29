@@ -1,0 +1,75 @@
+       :root {
+            --primary-color: #2196F3;
+            --background-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #f8f9fa;
+        }
+
+        [data-theme="dark"] {
+            --background-color: #1a1a1a;
+            --text-color: #ffffff;
+            --header-bg: #2d2d2d;
+        }
+
+        body {
+            margin: 0;
+            padding: 80px 20px 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* 导航栏样式 */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        /* 下拉菜单样式 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--header-bg);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-button {
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .dropdown-item {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: var(--text-color);
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
