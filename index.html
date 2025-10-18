@@ -1,10 +1,395 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <title>绿海铁道官方网站</title>
-  <meta charset="UTF-8">
-  <meta name="author" content="绿海铁道LHMTR">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js"></script>
-  <link rel="icon" href="LHMTR.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绿海铁道官网 - Minecraft架空铁道公司 简体中文</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4CAF50',
+                        secondary: '#2196F3',
+                        dark: '#333333',
+                        light: '#f5f5f5',
+                        accent: '#FFC107'
+                    },
+                    fontFamily: {
+                        sans: ['SimSun', '宋体', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .bg-minecraft {
+                background-image: url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/c7425295f3d74b8b97af1ec7530bbabf~tplv-a9rns2rl98-image.image?rcl=20251017210930226056FE345E3A5D5FE6&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1763298673&x-signature=KwhqzKfOipIewXR1Keg75bc95ig%3D');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            .nav-link {
+                @apply px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200;
+            }
+            .nav-link.active {
+                @apply text-primary font-medium;
+            }
+            .card {
+                @apply bg-white rounded-lg shadow-md p-6 mb-6;
+            }
+            .btn {
+                @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+            }
+            .btn-primary {
+                @apply bg-primary text-white hover:bg-green-600;
+            }
+            .btn-secondary {
+                @apply bg-secondary text-white hover:bg-blue-600;
+            }
+            .table-info {
+                @apply w-full border-collapse;
+            }
+            .table-info th, .table-info td {
+                @apply border border-gray-300 px-4 py-2;
+            }
+            .table-info th {
+                @apply bg-gray-100 text-left;
+            }
+        }
+    </style>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, div, span, a, li, ul, ol, table, th, td, button {
+            font-family: 'SimSun', '宋体', serif !important;
+        }
+    </style>
 </head>
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/c1607d0254874aac87ecc0d669b280d6~tplv-a9rns2rl98-image.image?rcl=20251017210930226056FE345E3A5D5FE6&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1763298686&x-signature=zt5uW1%2Bd6ecjnrC1tumIc8k5Dgg%3D" alt="青岚工艺" class="h-12 mr-3">
+                    <div>
+                        <a href="index.html" class="text-2xl font-bold text-primary">绿海铁道</a>
+                        <p class="text-sm text-gray-500">Minecraft 架空铁道公司</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-1">
+                    <a href="/index.html" class="nav-link active">首页</a>
+                    <a href="/join.html" class="nav-link">加入我们！</a>
+                    <a href="/server.html" class="nav-link">服务器介绍</a>
+                    <a href="https://lhmtr.miraheze.org" class="nav-link">绿海铁道Wiki</a>
+                    <a href="https://github.com/orgs/LHMTR" class="nav-link">绿海Github</a>
+                    <a href="/staff-bili.html" class="nav-link">请关注我们的B站！</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pt-3 pb-2">
+                <a href="#" class="block py-2 px-4 text-primary font-medium">首页</a>
+                <a href="#join" class="block py-2 px-4 text-gray-700 hover:text-primary">入服指南</a>
+                <a href="#features" class="block py-2 px-4 text-gray-700 hover:text-primary">服务器特色</a>
+                <a href="#wallpapers" class="block py-2 px-4 text-gray-700 hover:text-primary">壁纸站</a>
+                <a href="#survival" class="block py-2 px-4 text-gray-700 hover:text-primary">生存服</a>
+                <a href="#rules" class="block py-2 px-4 text-gray-700 hover:text-primary">服务器规则</a>
+                <a href="#gallery" class="block py-2 px-4 text-gray-700 hover:text-primary">玩家画廊</a>
+                <a href="#sponsor" class="block py-2 px-4 text-gray-700 hover:text-primary">赞助我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 欢迎横幅 -->
+        <section class="bg-minecraft rounded-lg shadow-lg p-8 mb-8 text-center text-white">
+            <h1 class="text-4xl font-bold mb-4">欢迎来到“青岚工艺”城建与创造服务器！</h1>
+            <p class="text-xl mb-6">青岚绕城起，工艺筑梦生 —— 在 Minecraft 里造你心中的城</p>
+            <p class="mb-8">欢迎来到“青岚工艺”《Minecraft》城建与创造服务器！本服务器是哔哩哔哩UP主“豹猫苦力怕可乐”的粉丝服务器，是一个融合了MTR、迷上城建、方块小镇等多种建筑类MOD的创造服务器，配合了WorldEdit、Axiom等辅助模组。无论您喜欢建造高楼还是轨交、道路等建造，我们都能为您提供无与伦比的游戏体验。</p>
+            <p>在这里，您可以尽情享受创造和建筑的乐趣，让您在探索和创造中找到属于自己的乐趣。欢迎您的加入，期待与您一起冒险！</p>
+        </section>
+
+        <!-- 服务器信息表格 -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4 text-primary">服务器基本信息</h2>
+                <table class="table-info">
+                    <tr>
+                        <th>服主</th>
+                        <td>豹猫苦力怕可乐（CreeperCola123）</td>
+                    </tr>
+                    <tr>
+                        <th>运维人员</th>
+                        <td>豹猫苦力怕可乐（CreeperCola123）、米可-Math_Ultra（Math_Ultra）、一个雪糕君呀（IceCreamFish14）</td>
+                    </tr>
+                    <tr>
+                        <th>服务器版本</th>
+                        <td>Minecraft Java 1.20.1 （国际版模组服）</td>
+                    </tr>
+                    <tr>
+                        <th>游戏模式</th>
+                        <td>创造(城建)</td>
+                    </tr>
+                    <tr>
+                        <th>游戏使用设备</th>
+                        <td>仅电脑，不支持手机</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4 text-primary">服务器详细信息</h2>
+                <table class="table-info">
+                    <tr>
+                        <th>中文全称</th>
+                        <td>青岚工艺城建与创造服务器</td>
+                    </tr>
+                    <tr>
+                        <th>英文全称</th>
+                        <td>Qinglan Craft Urban Construction & Creative Mode Server</td>
+                    </tr>
+                    <tr>
+                        <th>中文简写</th>
+                        <td>青岚工艺（创造服）</td>
+                    </tr>
+                    <tr>
+                        <th>英文简写</th>
+                        <td>Qinglan Craft (Creative Server)</td>
+                    </tr>
+                    <tr>
+                        <th>服务器分类</th>
+                        <td>城市建设、轨道交通、铁路、公路、MTR</td>
+                    </tr>
+                    <tr>
+                        <th>是否需要正版</th>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <th>当前周目</th>
+                        <td>三周目</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- 服务器功能区 -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- 创造服入口 -->
+            <div id="join" class="card bg-gradient-to-br from-green-50 to-blue-50">
+                <h2 class="text-xl font-bold mb-4 text-primary">前往“青岚工艺(创造服)”进行创造城建</h2>
+                <p class="mb-4">欢迎来到“青岚工艺（创造服）”！本服无需正版，您可在这里加入创造服务器：</p>
+                <a href="https://gmwiki.bklmc.top/join" class="btn btn-primary inline-flex items-center">
+                    <i class="fa fa-book mr-2"></i>“青岚工艺（创造服）”入服指南
+                </a>
+            </div>
+            
+            <!-- 服务器特色 -->
+            <div id="features" class="card bg-gradient-to-br from-blue-50 to-purple-50">
+                <h2 class="text-xl font-bold mb-4 text-secondary">服务器特色/建筑/风景</h2>
+                <p class="mb-4">您可以在这里了解“青岚工艺（创造服）”的服务器特色，并欣赏服务器的建筑与风景：</p>
+                <a href="https://gmwiki.bklmc.top/features" class="btn btn-secondary inline-flex items-center">
+                    <i class="fa fa-image mr-2"></i>服务器特色/建筑/风景
+                </a>
+            </div>
+            
+            <!-- 壁纸站 -->
+            <div id="wallpapers" class="card bg-gradient-to-br from-purple-50 to-pink-50">
+                <h2 class="text-xl font-bold mb-4 text-purple-600">人物形象/看板娘/壁纸站</h2>
+                <p class="mb-4">您也可以在这里了解豹猫苦力怕可乐视频系列及“青岚工艺（创造服）”的二次元人物形象并欣赏人物壁纸！</p>
+                <a href="https://gmwiki.bklmc.top/wallpapers" class="btn inline-flex items-center" style="background-color: #9C27B0; color: white;">
+                    <i class="fa fa-picture-o mr-2"></i>个人形象/看板娘/壁纸站
+                </a>
+            </div>
+            
+            <!-- 生存服入口 -->
+            <div id="survival" class="card bg-gradient-to-br from-yellow-50 to-orange-50">
+                <h2 class="text-xl font-bold mb-4 text-yellow-600">前往“梦溪巷(生存服)”(子服)进行生存</h2>
+                <p class="mb-4">“青岚工艺（创造服）”为城建创造服务器，如果您需要游玩生存，可前往“梦溪巷（生存服）”：</p>
+                <a href="http://survivalwiki.bklmc.top/" class="btn inline-flex items-center" style="background-color: #FF9800; color: white;">
+                    <i class="fa fa-tree mr-2"></i>梦溪巷(生存服)官网
+                </a>
+            </div>
+        </section>
+
+        <!-- 服务器规则 -->
+        <section id="rules" class="card bg-gradient-to-br from-blue-50 to-green-50 mb-8">
+            <h2 class="text-xl font-bold mb-4 text-primary">服务器规则</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="font-bold text-lg">1. 基本规则</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-1">
+                        <li>尊重他人，禁止辱骂、侮辱、歧视等行为</li>
+                        <li>禁止作弊、使用外挂或破坏游戏平衡的行为</li>
+                        <li>禁止建造不良内容或违反法律法规的建筑</li>
+                        <li>禁止恶意破坏他人建筑或财产</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">2. 建筑规则</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-1">
+                        <li>建筑需符合服务器主题，保持美观</li>
+                        <li>大型建筑项目需提前申请</li>
+                        <li>禁止建造过于简单或重复的建筑</li>
+                        <li>保护自然环境，合理利用资源</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">3. 社区规则</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-1">
+                        <li>积极参与社区活动</li>
+                        <li>帮助新玩家融入服务器</li>
+                        <li>在公共频道保持友好交流</li>
+                        <li>禁止发布广告或无关链接</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 玩家画廊 -->
+        <section id="gallery" class="card mb-8">
+            <h2 class="text-xl font-bold mb-4 text-primary">玩家画廊</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/labis/72f6fdd46d0a7a5d133e282500912fe7~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1765890732&x-signature=JYpKuE6JsUWg%2BpBDzHzHOYG0zi4%3D" alt="现代别墅" class="w-full h-64 object-cover">
+                    <div class="p-3 bg-white">
+                        <h3 class="font-bold">现代别墅</h3>
+                        <p class="text-sm text-gray-600">由玩家 @建筑师小明 建造</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/labis/f431dbc761caebb68f6c5e1480d28000~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1765890732&x-signature=NGMDHlwSbRwdvzdIxh7OYyauAA4%3D" alt="城市建筑群" class="w-full h-64 object-cover">
+                    <div class="p-3 bg-white">
+                        <h3 class="font-bold">城市建筑群</h3>
+                        <p class="text-sm text-gray-600">由玩家 @城市规划师小红 建造</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/labis/b07dd2dfc1d440730ef4df62ad1753e7~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1765890732&x-signature=cn4hej1sXxO95GHfe%2FirtMdl79Q%3D" alt="轨道交通系统" class="w-full h-64 object-cover">
+                    <div class="p-3 bg-white">
+                        <h3 class="font-bold">轨道交通系统</h3>
+                        <p class="text-sm text-gray-600">由玩家 @工程师小李 建造</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 text-center">
+                <a href="#" class="btn btn-primary inline-flex items-center">
+                    <i class="fa fa-image mr-2"></i>查看更多玩家作品
+                </a>
+            </div>
+        </section>
+
+        <!-- 赞助区域 -->
+        <section id="sponsor" class="card bg-gradient-to-br from-red-50 to-orange-50">
+            <h2 class="text-xl font-bold mb-4 text-red-600">赞助/联系我们</h2>
+            <p class="mb-4">如果您喜欢我们的服务器，欢迎通过以下方式支持我们：</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="btn inline-flex items-center" style="background-color: #E91E63; color: white;">
+                    <i class="fa fa-heart mr-2"></i>赞助我们
+                </a>
+                <a href="#" class="btn inline-flex items-center" style="background-color: #607D8B; color: white;">
+                    <i class="fa fa-envelope mr-2"></i>联系我们
+                </a>
+                <a href="#" class="btn inline-flex items-center" style="background-color: #FF5722; color: white;">
+                    <i class="fa fa-weibo mr-2"></i>官方微博
+                </a>
+                <a href="#" class="btn inline-flex items-center" style="background-color: #4CAF50; color: white;">
+                    <i class="fa fa-youtube-play mr-2"></i>YouTube频道
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">青岚工艺</h3>
+                    <p class="text-gray-400">Minecraft 城建与创造服务器</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fa fa-weibo text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fa fa-wechat text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fa fa-youtube-play text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 青岚工艺 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 如果是移动端，点击后关闭菜单
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // 导航栏激活状态
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
