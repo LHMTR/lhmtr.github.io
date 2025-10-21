@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -66,29 +66,62 @@
             }
             
             /* 侧边栏样式 */
+            .sidebar {
+                @apply bg-white rounded-lg shadow-md transition-all duration-300 ease-in-out overflow-hidden;
+            }
+            .sidebar.collapsed {
+                @apply w-16;
+            }
+            .sidebar:not(.collapsed) {
+                @apply w-64;
+            }
+            .sidebar-content {
+                @apply p-4;
+            }
+            .sidebar-toggle {
+                @apply w-full py-3 px-4 bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center justify-center transition-colors duration-200;
+            }
             .sidebar-group {
                 @apply mb-4;
             }
             .sidebar-group-title {
-                @apply font-bold text-gray-800 text-lg py-2 px-4 bg-gray-100 rounded-md flex justify-between items-center cursor-pointer;
+                @apply font-bold text-gray-800 text-base py-2 px-3 bg-gray-100 rounded flex justify-between items-center cursor-pointer;
             }
             .sidebar-group-content {
                 @apply mt-2;
             }
             .sidebar-link {
-                @apply block py-2 px-6 text-gray-700 hover:bg-gray-100 rounded transition-colors duration-200;
+                @apply block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors duration-200;
             }
             .sidebar-link.active {
                 @apply bg-primary text-white hover:bg-green-600;
             }
-            .sidebar-toggle {
+            .group-toggle {
                 @apply transition-transform duration-200;
             }
             .sidebar-group.collapsed .sidebar-group-content {
                 @apply hidden;
             }
-            .sidebar-group.collapsed .sidebar-toggle {
+            .sidebar-group.collapsed .group-toggle {
                 @apply transform rotate-180;
+            }
+            .sidebar.collapsed .sidebar-group-title span {
+                @apply hidden;
+            }
+            .sidebar.collapsed .sidebar-link span {
+                @apply hidden;
+            }
+            .sidebar.collapsed .sidebar-group-title {
+                @apply justify-center px-2;
+            }
+            .sidebar.collapsed .sidebar-link {
+                @apply flex justify-center px-2;
+            }
+            .sidebar-icon {
+                @apply mr-2;
+            }
+            .sidebar.collapsed .sidebar-icon {
+                @apply mr-0;
             }
         }
     </style>
@@ -117,7 +150,6 @@
                     <a href="https://lhmtr.miraheze.org" class="nav-link">绿海铁道Wiki</a>
                     <a href="https://github.com/orgs/LHMTR" class="nav-link">绿海Github</a>
                     <a href="/staff-bili.html" class="nav-link">请关注我们的B站！</a>
-                    /此处以后需要更改，https://space.bilibili.com/3493139295767175?spm_id_from=333.337.0.0
                 </nav>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-500 hover:text-primary">
@@ -143,57 +175,110 @@
     <main class="container mx-auto px-4 py-8">
         <div class="flex flex-col md:flex-row gap-8">
             <!-- 左侧边栏 -->
-            <aside class="w-full md:w-64 flex-shrink-0">
-                <div class="bg-white rounded-lg shadow-md p-4">
+            <aside class="sidebar">
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fa fa-bars sidebar-icon"></i>
+                    <span class="hidden md:inline">折叠侧边栏</span>
+                </button>
+                
+                <div class="sidebar-content">
                     <!-- 服务器信息分组 -->
                     <div class="sidebar-group">
                         <div class="sidebar-group-title" data-group="server-info">
-                            服务器信息
-                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                            <div class="flex items-center">
+                                <i class="fa fa-server sidebar-icon"></i>
+                                <span>服务器信息</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
                         </div>
                         <div class="sidebar-group-content">
-                            <a href="/server-status.html" class="sidebar-link">服务器状态</a>
-                            <a href="/server-rules.html" class="sidebar-link">服务器规则</a>
-                            <a href="/server-faq.html" class="sidebar-link">常见问题</a>
+                            <a href="/server-status.html" class="sidebar-link">
+                                <i class="fa fa-signal sidebar-icon"></i>
+                                <span>服务器状态</span>
+                            </a>
+                            <a href="/server-rules.html" class="sidebar-link">
+                                <i class="fa fa-gavel sidebar-icon"></i>
+                                <span>服务器规则</span>
+                            </a>
+                            <a href="/server-faq.html" class="sidebar-link">
+                                <i class="fa fa-question-circle sidebar-icon"></i>
+                                <span>常见问题</span>
+                            </a>
                         </div>
                     </div>
                     
                     <!-- 建设相关分组 -->
                     <div class="sidebar-group">
                         <div class="sidebar-group-title" data-group="construction">
-                            建设相关
-                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                            <div class="flex items-center">
+                                <i class="fa fa-wrench sidebar-icon"></i>
+                                <span>建设相关</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
                         </div>
                         <div class="sidebar-group-content">
-                            <a href="/join.html" class="sidebar-link">加入建设</a>
-                            <a href="/building-guide.html" class="sidebar-link">建筑指南</a>
-                            <a href="/project-list.html" class="sidebar-link">工程列表</a>
+                            <a href="/join.html" class="sidebar-link">
+                                <i class="fa fa-user-plus sidebar-icon"></i>
+                                <span>加入建设</span>
+                            </a>
+                            <a href="/building-guide.html" class="sidebar-link">
+                                <i class="fa fa-book sidebar-icon"></i>
+                                <span>建筑指南</span>
+                            </a>
+                            <a href="/project-list.html" class="sidebar-link">
+                                <i class="fa fa-list-alt sidebar-icon"></i>
+                                <span>工程列表</span>
+                            </a>
                         </div>
                     </div>
                     
                     <!-- 资源下载分组 -->
                     <div class="sidebar-group">
                         <div class="sidebar-group-title" data-group="resources">
-                            资源下载
-                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                            <div class="flex items-center">
+                                <i class="fa fa-download sidebar-icon"></i>
+                                <span>资源下载</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
                         </div>
                         <div class="sidebar-group-content">
-                            <a href="/client-download.html" class="sidebar-link">客户端下载</a>
-                            <a href="/resource-pack.html" class="sidebar-link">资源包下载</a>
-                            <a href="/map-download.html" class="sidebar-link">地图下载</a>
+                            <a href="/client-download.html" class="sidebar-link">
+                                <i class="fa fa-desktop sidebar-icon"></i>
+                                <span>客户端下载</span>
+                            </a>
+                            <a href="/resource-pack.html" class="sidebar-link">
+                                <i class="fa fa-file-archive-o sidebar-icon"></i>
+                                <span>资源包下载</span>
+                            </a>
+                            <a href="/map-download.html" class="sidebar-link">
+                                <i class="fa fa-map sidebar-icon"></i>
+                                <span>地图下载</span>
+                            </a>
                         </div>
                     </div>
                     
                     <!-- 外部链接分组 -->
                     <div class="sidebar-group">
                         <div class="sidebar-group-title" data-group="external-links">
-                            外部链接
-                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                            <div class="flex items-center">
+                                <i class="fa fa-external-link sidebar-icon"></i>
+                                <span>外部链接</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
                         </div>
                         <div class="sidebar-group-content">
-                            <a href="https://lhmtr.miraheze.org" class="sidebar-link">绿海Wiki</a>
-                            <a href="https://github.com/orgs/LHMTR" class="sidebar-link">绿海Github</a>
-                            <a href="/staff-bili.html" class="sidebar-link">工作人员B站</a>
+                            <a href="https://lhmtr.miraheze.org" class="sidebar-link">
+                                <i class="fa fa-book sidebar-icon"></i>
+                                <span>绿海Wiki</span>
+                            </a>
+                            <a href="https://github.com/orgs/LHMTR" class="sidebar-link">
+                                <i class="fa fa-github sidebar-icon"></i>
+                                <span>绿海Github</span>
+                            </a>
+                            <a href="/staff-bili.html" class="sidebar-link">
+                                <i class="fa fa-video-camera sidebar-icon"></i>
+                                <span>工作人员B站</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -263,6 +348,7 @@
                         <p class="mb-4">点击这里加入我们！不需要正版！</p>
                         <a href="/server-join.hmtr" class="btn btn-primary inline-flex items-center">
                             <i class="fa fa-book mr-2"></i>
+                            加入服务器
                         </a>
                     </div>
                     
@@ -304,6 +390,20 @@
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // 侧边栏整体折叠功能
+        document.getElementById('sidebar-toggle').addEventListener('click', function() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('collapsed');
+            
+            // 更新按钮文本
+            const span = this.querySelector('span');
+            if (sidebar.classList.contains('collapsed')) {
+                span.textContent = '展开侧边栏';
+            } else {
+                span.textContent = '折叠侧边栏';
+            }
         });
 
         // 侧边栏分组折叠功能
