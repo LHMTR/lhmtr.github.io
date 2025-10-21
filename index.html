@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -17,11 +17,7 @@
                         secondary: '#2196F3',
                         dark: '#333333',
                         light: '#f5f5f5',
-                        accent: '#FFC107',
-                        // 新增边栏颜色（匹配gmwiki风格）
-                        sidebar: '#2d3748',
-                        sidebarHover: '#4a5568',
-                        sidebarText: '#e2e8f0'
+                        accent: '#FFC107'
                     },
                     fontFamily: {
                         sans: ['SimSun', '宋体', 'serif'],
@@ -68,48 +64,31 @@
             .table-info th {
                 @apply bg-gray-100 text-left;
             }
-            /* 新增：左侧边栏工具类 */
-            .sidebar {
-                @apply fixed top-0 left-0 h-full w-64 bg-sidebar text-sidebarText overflow-y-auto z-20 transition-transform duration-300;
+            
+            /* 侧边栏样式 */
+            .sidebar-group {
+                @apply mb-4;
             }
-            .sidebar-header {
-                @apply p-4 border-b border-sidebarHover flex items-center gap-3;
+            .sidebar-group-title {
+                @apply font-bold text-gray-800 text-lg py-2 px-4 bg-gray-100 rounded-md flex justify-between items-center cursor-pointer;
             }
-            .sidebar-logo {
-                @apply h-10 w-10 rounded object-cover;
+            .sidebar-group-content {
+                @apply mt-2;
             }
-            .sidebar-menu {
-                @apply mt-4 list-none;
+            .sidebar-link {
+                @apply block py-2 px-6 text-gray-700 hover:bg-gray-100 rounded transition-colors duration-200;
             }
-            .sidebar-menu-item {
-                @apply my-1;
+            .sidebar-link.active {
+                @apply bg-primary text-white hover:bg-green-600;
             }
-            .sidebar-menu-btn {
-                @apply w-full bg-transparent border-none text-left px-4 py-3 hover:bg-sidebarHover transition-colors duration-200 flex justify-between items-center cursor-pointer;
+            .sidebar-toggle {
+                @apply transition-transform duration-200;
             }
-            .sidebar-submenu {
-                @apply list-none bg-sidebarHover hidden;
+            .sidebar-group.collapsed .sidebar-group-content {
+                @apply hidden;
             }
-            .sidebar-submenu.show {
-                @apply block;
-            }
-            .sidebar-submenu-link {
-                @apply block px-8 py-2 text-gray-300 hover:bg-sidebar hover:text-white transition-colors duration-200 text-sm;
-            }
-            .sidebar-submenu-link.active {
-                @apply bg-sidebar text-white font-medium;
-            }
-            /* 新增：主内容区适配边栏 */
-            .content-with-sidebar {
-                @apply ml-64 transition-margin duration-300;
-            }
-            /* 新增：移动端边栏隐藏 */
-            .sidebar-hide {
-                @apply -translate-x-full;
-            }
-            /* 新增：移动端边栏切换按钮 */
-            .sidebar-toggle-btn {
-                @apply md:hidden text-gray-500 hover:text-primary mr-3;
+            .sidebar-group.collapsed .sidebar-toggle {
+                @apply transform rotate-180;
             }
         }
     </style>
@@ -120,91 +99,17 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <!-- 新增：左侧边栏 -->
-    <aside class="sidebar" id="left-sidebar">
-        <!-- 边栏Logo区 -->
-        <div class="sidebar-header">
-            <img src="/lhmtr.icon" alt="绿海铁道" class="sidebar-logo">
-            <div>
-                <h3 class="font-bold text-white">绿海铁道</h3>
-                <p class="text-xs text-gray-400">LHMTR Official</p>
-            </div>
-        </div>
-        <!-- 边栏菜单 -->
-        <ul class="sidebar-menu">
-            <!-- 首页菜单 -->
-            <li class="sidebar-menu-item">
-                <button class="sidebar-menu-btn" data-submenu="home-submenu">
-                    <span><i class="fa fa-home mr-2"></i>首页</span>
-                    <i class="fa fa-angle-right text-xs transition-transform duration-200"></i>
-                </button>
-                <ul class="sidebar-submenu" id="home-submenu">
-                    <li><a href="/index.html" class="sidebar-submenu-link active">官网首页</a></li>
-                    <li><a href="#server-features" class="sidebar-submenu-link">服务器特色</a></li>
-                </ul>
-            </li>
-            <!-- 加入我们菜单 -->
-            <li class="sidebar-menu-item">
-                <button class="sidebar-menu-btn" data-submenu="join-submenu">
-                    <span><i class="fa fa-user-plus mr-2"></i>加入我们</span>
-                    <i class="fa fa-angle-right text-xs transition-transform duration-200"></i>
-                </button>
-                <ul class="sidebar-submenu" id="join-submenu">
-                    <li><a href="/join.html" class="sidebar-submenu-link">入服申请</a></li>
-                    <li><a href="/server-join.hmtr" class="sidebar-submenu-link">创造服入口</a></li>
-                </ul>
-            </li>
-            <!-- 服务器介绍菜单 -->
-            <li class="sidebar-menu-item">
-                <button class="sidebar-menu-btn" data-submenu="server-submenu">
-                    <span><i class="fa fa-server mr-2"></i>服务器介绍</span>
-                    <i class="fa fa-angle-right text-xs transition-transform duration-200"></i>
-                </button>
-                <ul class="sidebar-submenu" id="server-submenu">
-                    <li><a href="/server.html" class="sidebar-submenu-link">基本信息</a></li>
-                    <li><a href="#server-info" class="sidebar-submenu-link">详细信息</a></li>
-                </ul>
-            </li>
-            <!-- 资源文档菜单 -->
-            <li class="sidebar-menu-item">
-                <button class="sidebar-menu-btn" data-submenu="resource-submenu">
-                    <span><i class="fa fa-book mr-2"></i>资源文档</span>
-                    <i class="fa fa-angle-right text-xs transition-transform duration-200"></i>
-                </button>
-                <ul class="sidebar-submenu" id="resource-submenu">
-                    <li><a href="https://lhmtr.miraheze.org" class="sidebar-submenu-link">绿海铁道Wiki</a></li>
-                    <li><a href="/picture.html" class="sidebar-submenu-link">精选图片</a></li>
-                </ul>
-            </li>
-            <!-- 关于我们菜单 -->
-            <li class="sidebar-menu-item">
-                <button class="sidebar-menu-btn" data-submenu="about-submenu">
-                    <span><i class="fa fa-info-circle mr-2"></i>关于我们</span>
-                    <i class="fa fa-angle-right text-xs transition-transform duration-200"></i>
-                </button>
-                <ul class="sidebar-submenu" id="about-submenu">
-                    <li><a href="https://github.com/orgs/LHMTR" class="sidebar-submenu-link">绿海Github</a></li>
-                    <li><a href="/staff-bili.html" class="sidebar-submenu-link">工作人员B站</a></li>
-                    <li><a href="/service.html" class="sidebar-submenu-link">运营信息</a></li>
-                </ul>
-            </li>
-        </ul>
-    </aside>
-
-    <!-- 原有头部导航：添加适配边栏的类 + 移动端边栏切换按钮 -->
-    <header class="bg-white shadow-md content-with-sidebar" id="top-header">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <!-- 新增：移动端边栏切换按钮 -->
-                <button class="sidebar-toggle-btn" id="mobile-sidebar-toggle">
-                    <i class="fa fa-bars text-xl"></i>
-                </button>
-                <!-- 原有：顶部Logo（仅移动端显示） -->
-                <div class="flex items-center md:hidden">
-                    <img src="/lhmtr.icon" alt="绿海铁道" class="h-8 mr-2">
-                    <span class="text-lg font-bold text-primary">绿海铁道</span>
+                <div class="flex items-center">
+                    <img src="/lhmtr.icon" alt="绿海铁道" class="h-12 mr-3">
+                    <div>
+                        <a href="index.html" class="text-2xl font-bold text-primary">绿海铁道</a>
+                        <p class="text-sm text-gray-500">Minecraft 架空铁道公司</p>
+                    </div>
                 </div>
-                <!-- 原有：桌面端导航 -->
                 <nav class="hidden md:flex space-x-1">
                     <a href="/index.html" class="nav-link active">首页</a>
                     <a href="/join.html" class="nav-link">加入我们！</a>
@@ -212,15 +117,15 @@
                     <a href="https://lhmtr.miraheze.org" class="nav-link">绿海铁道Wiki</a>
                     <a href="https://github.com/orgs/LHMTR" class="nav-link">绿海Github</a>
                     <a href="/staff-bili.html" class="nav-link">请关注我们的B站！</a>
+                    /此处以后需要更改，https://space.bilibili.com/3493139295767175?spm_id_from=333.337.0.0
                 </nav>
-                <!-- 原有：移动端菜单按钮 -->
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-500 hover:text-primary">
                         <i class="fa fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
-            <!-- 原有：移动端菜单 -->
+            <!-- 移动端菜单 -->
             <div id="mobile-menu" class="md:hidden hidden pt-3 pb-2">
                 <a href="/index.html" class="block py-2 px-4 text-primary font-medium">首页</a>
                 <a href="/join.html" class="block py-2 px-4 text-gray-700 hover:text-primary">加入我们！</a>
@@ -234,84 +139,148 @@
         </div>
     </header>
 
-    <!-- 原有主内容区：添加适配边栏的类 + 给板块加id便于边栏跳转 -->
-    <main class="container mx-auto px-4 py-8 content-with-sidebar" id="main-content">
-        <!-- 原有：欢迎横幅 -->
-        <section class="bg-minecraft rounded-lg shadow-lg p-8 mb-8 text-center text-white">
-            <h1 class="text-4xl font-bold mb-4">欢迎来到绿海铁道官网！</h1>
-            <p class="text-xl mb-6">Minecraft架空铁道公司</p>
-            <p class="mb-8">欢迎来到绿海铁道公司官方网页！在这里，您可以查阅我们公司的简介、运营信息、工程等。</p>
-            <p>欢迎您来绿海铁道服务器参观，也欢迎您的加入，期待您的建筑！！</p>
-        </section>
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- 左侧边栏 -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <!-- 服务器信息分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="server-info">
+                            服务器信息
+                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                        </div>
+                        <div class="sidebar-group-content">
+                            <a href="/server-status.html" class="sidebar-link">服务器状态</a>
+                            <a href="/server-rules.html" class="sidebar-link">服务器规则</a>
+                            <a href="/server-faq.html" class="sidebar-link">常见问题</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 建设相关分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="construction">
+                            建设相关
+                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                        </div>
+                        <div class="sidebar-group-content">
+                            <a href="/join.html" class="sidebar-link">加入建设</a>
+                            <a href="/building-guide.html" class="sidebar-link">建筑指南</a>
+                            <a href="/project-list.html" class="sidebar-link">工程列表</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 资源下载分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="resources">
+                            资源下载
+                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                        </div>
+                        <div class="sidebar-group-content">
+                            <a href="/client-download.html" class="sidebar-link">客户端下载</a>
+                            <a href="/resource-pack.html" class="sidebar-link">资源包下载</a>
+                            <a href="/map-download.html" class="sidebar-link">地图下载</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 外部链接分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="external-links">
+                            外部链接
+                            <i class="fa fa-chevron-down sidebar-toggle"></i>
+                        </div>
+                        <div class="sidebar-group-content">
+                            <a href="https://lhmtr.miraheze.org" class="sidebar-link">绿海Wiki</a>
+                            <a href="https://github.com/orgs/LHMTR" class="sidebar-link">绿海Github</a>
+                            <a href="/staff-bili.html" class="sidebar-link">工作人员B站</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
 
-        <!-- 原有：服务器信息表格 -->
-        <section id="server-info" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div class="card">
-                <h2 class="text-xl font-bold mb-4 text-primary">绿海铁道基本信息</h2>
-                <table class="table-info">
-                    <tr>
-                        <th>创始人</th>
-                        <td>黑暗乄蘑菇（DarkMasterXPGD）</td>
-                    </tr>
-                    <tr>
-                        <th>工作人员</th>
-                        <td>暂无</td>
-                    </tr>
-                    <tr>
-                        <th>绿海铁道服务器版本</th>
-                        <td>Minecraft Java 1.20.1 （国际版模组服）</td>
-                    </tr>
-                    <tr>
-                        <th>游戏模式</th>
-                        <td>创造模式</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="card">
-                <h2 class="text-xl font-bold mb-4 text-primary">服务器详细信息</h2>
-                <table class="table-info">
-                    <tr>
-                        <th>中文全称</th>
-                        <td>绿海铁道建筑服务器</td>
-                    </tr>
-                    <tr>
-                        <th>英文全称</th>
-                        <td>LHMTR Creative Server</td>
-                    </tr>
-                    <tr>
-                        <th>服务器分类</th>
-                        <td>城建、铁路、航空、轮渡、缆车等</td>
-                    </tr>
-                    <tr>
-                        <th>是否需要正版</th>
-                        <td>否</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
+            <!-- 右侧内容区 -->
+            <div class="flex-1">
+                <!-- 欢迎横幅 -->
+                <section class="bg-minecraft rounded-lg shadow-lg p-8 mb-8 text-center text-white">
+                    <h1 class="text-4xl font-bold mb-4">欢迎来到绿海铁道官网！</h1>
+                    <p class="text-xl mb-6">Minecraft架空铁道公司</p>
+                    <p class="mb-8">欢迎来到绿海铁道公司官方网页！在这里，您可以查阅我们公司的简介、运营信息、工程等。</p>
+                    <p>欢迎您来绿海铁道服务器参观，也欢迎您的加入，期待您的建筑！！</p>
+                </section>
 
-        <!-- 原有：服务器功能区 -->
-        <section id="server-features" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div id="join" class="card bg-gradient-to-br from-green-50 to-blue-50">
-                <h2 class="text-xl font-bold mb-4 text-primary">加入绿海铁道的建设团队</h2>
-                <p class="mb-4">点击这里加入我们！不需要正版！</p>
-                <a href="/server-join.hmtr" class="btn btn-primary inline-flex items-center">
-                    <i class="fa fa-book mr-2"></i>进入创造服
-                </a>
+                <!-- 服务器信息表格 -->
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="card">
+                        <h2 class="text-xl font-bold mb-4 text-primary">绿海铁道基本信息</h2>
+                        <table class="table-info">
+                            <tr>
+                                <th>创始人</th>
+                                <td>黑暗乄蘑菇（DarkMasterXPGD）</td>
+                            </tr>
+                            <tr>
+                                <th>工作人员</th>
+                                <td>暂无</td>
+                            </tr>
+                            <tr>
+                                <th>绿海铁道服务器版本</th>
+                                <td>Minecraft Java 1.20.1 （国际版模组服）</td>
+                            </tr>
+                            <tr>
+                                <th>游戏模式</th>
+                                <td>创造模式</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <h2 class="text-xl font-bold mb-4 text-primary">服务器详细信息</h2>
+                        <table class="table-info">
+                            <tr>
+                                <th>中文全称</th>
+                                <td>绿海铁道建筑服务器</td>
+                            </tr>
+                            <tr>
+                                <th>英文全称</th>
+                                <td>LHMTR Creative Server</td>
+                            </tr>
+                            <tr>
+                                <th>服务器分类</th>
+                                <td>城建、铁路、航空、轮渡、缆车等</td>
+                            </tr>
+                            <tr>
+                                <th>是否需要正版</th>
+                                <td>否</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 服务器功能区 -->
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <!-- 创造服入口 -->
+                    <div id="join" class="card bg-gradient-to-br from-green-50 to-blue-50">
+                        <h2 class="text-xl font-bold mb-4 text-primary">加入绿海铁道的建设团队</h2>
+                        <p class="mb-4">点击这里加入我们！不需要正版！</p>
+                        <a href="/server-join.hmtr" class="btn btn-primary inline-flex items-center">
+                            <i class="fa fa-book mr-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- 服务器特色 -->
+                    <div id="features" class="card bg-gradient-to-br from-blue-50 to-purple-50">
+                        <h2 class="text-xl font-bold mb-4 text-secondary">服务器特色/建筑/风景</h2>
+                        <p class="mb-4">观赏风景或者看看我们的建筑</p>
+                        <a href="/picture.hmtl" class="btn btn-secondary inline-flex items-center">
+                            <i class="fa fa-image mr-2"></i>服务器特色/建筑/风景图片欣赏
+                        </a>
+                    </div>
+                </section>
             </div>
-            
-            <div class="card bg-gradient-to-br from-blue-50 to-purple-50">
-                <h2 class="text-xl font-bold mb-4 text-secondary">服务器特色/建筑/风景</h2>
-                <p class="mb-4">观赏风景或者看看我们的建筑</p>
-                <a href="/picture.html" class="btn btn-secondary inline-flex items-center">
-                    <i class="fa fa-image mr-2"></i>服务器特色/建筑/风景图片欣赏
-                </a>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- 原有页脚：添加适配边栏的类 -->
-    <footer class="bg-gray-800 text-white py-8 content-with-sidebar" id="page-footer">
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
@@ -330,15 +299,22 @@
         </div>
     </footer>
 
-    <!-- 原有JS + 新增边栏交互JS -->
     <script>
-        // 原有：移动端菜单切换
+        // 移动端菜单切换
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
 
-        // 原有：平滑滚动
+        // 侧边栏分组折叠功能
+        document.querySelectorAll('.sidebar-group-title').forEach(title => {
+            title.addEventListener('click', function() {
+                const group = this.parentElement;
+                group.classList.toggle('collapsed');
+            });
+        });
+
+        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -352,7 +328,7 @@
                         behavior: 'smooth'
                     });
                     
-                    // 移动端：点击后关闭菜单
+                    // 如果是移动端，点击后关闭菜单
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
@@ -361,7 +337,7 @@
             });
         });
 
-        // 原有：导航栏激活状态
+        // 导航栏激活状态
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section[id]');
             const scrollPosition = window.scrollY + 100;
@@ -380,88 +356,6 @@
                     });
                 }
             });
-        });
-
-        // 新增：左侧边栏交互 - 展开/收起子菜单
-        const sidebarMenuBtns = document.querySelectorAll('.sidebar-menu-btn');
-        sidebarMenuBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // 获取目标子菜单
-                const submenuId = this.getAttribute('data-submenu');
-                const targetSubmenu = document.getElementById(submenuId);
-                if (!targetSubmenu) return;
-
-                // 切换子菜单显示/隐藏 + 箭头旋转
-                targetSubmenu.classList.toggle('show');
-                const arrowIcon = this.querySelector('.fa-angle-right');
-                arrowIcon.classList.toggle('rotate-90');
-
-                // 关闭其他子菜单（避免多层展开）
-                document.querySelectorAll('.sidebar-submenu').forEach(submenu => {
-                    if (submenu.id !== submenuId && submenu.classList.contains('show')) {
-                        submenu.classList.remove('show');
-                        submenu.previousElementSibling.querySelector('.fa-angle-right').classList.remove('rotate-90');
-                    }
-                });
-            });
-        });
-
-        // 新增：左侧边栏交互 - 子菜单链接选中状态
-        const sidebarSubLinks = document.querySelectorAll('.sidebar-submenu-link');
-        sidebarSubLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                // 移除所有链接的选中状态
-                sidebarSubLinks.forEach(l => l.classList.remove('active'));
-                // 给当前链接添加选中状态
-                this.classList.add('active');
-
-                // 移动端：点击后隐藏边栏
-                if (window.innerWidth < 768) {
-                    document.getElementById('left-sidebar').classList.add('sidebar-hide');
-                    document.querySelectorAll('.content-with-sidebar').forEach(el => {
-                        el.classList.remove('ml-64');
-                    });
-                }
-            });
-        });
-
-        // 新增：左侧边栏交互 - 移动端切换显示/隐藏
-        const mobileSidebarToggle = document.getElementById('mobile-sidebar-toggle');
-        const leftSidebar = document.getElementById('left-sidebar');
-        const contentWithSidebar = document.querySelectorAll('.content-with-sidebar');
-
-        // 移动端初始化边栏状态
-        function initSidebarOnMobile() {
-            if (window.innerWidth < 768) {
-                leftSidebar.classList.add('sidebar-hide');
-                contentWithSidebar.forEach(el => {
-                    el.classList.remove('ml-64');
-                });
-            } else {
-                leftSidebar.classList.remove('sidebar-hide');
-                contentWithSidebar.forEach(el => {
-                    el.classList.add('ml-64');
-                });
-            }
-        }
-        // 页面加载时初始化
-        window.addEventListener('load', initSidebarOnMobile);
-        // 窗口大小变化时重新初始化
-        window.addEventListener('resize', initSidebarOnMobile);
-
-        // 点击移动端切换按钮控制边栏
-        mobileSidebarToggle.addEventListener('click', function() {
-            leftSidebar.classList.toggle('sidebar-hide');
-            contentWithSidebar.forEach(el => {
-                el.classList.toggle('ml-64');
-            });
-        });
-
-        // 新增：页面加载时默认展开第一个子菜单（匹配gmwiki风格）
-        window.addEventListener('load', function() {
-            if (sidebarMenuBtns.length > 0) {
-                sidebarMenuBtns[0].click();
-            }
         });
     </script>
 </body>
