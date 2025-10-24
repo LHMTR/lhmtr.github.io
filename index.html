@@ -1,10 +1,461 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <title>绿海铁道官方网站</title>
-  <meta charset="UTF-8">
-  <meta name="author" content="绿海铁道LHMTR">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js"></script>
-  <link rel="icon" href="LHMTR.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绿海铁道官网 - Minecraft架空铁道公司 简体中文</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4CAF50',
+                        secondary: '#2196F3',
+                        dark: '#333333',
+                        light: '#f5f5f5',
+                        accent: '#FFC107'
+                    },
+                    fontFamily: {
+                        sans: ['SimSun', '宋体', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .bg-minecraft {
+                background-image: url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/c7425295f3d74b8b97af1ec7530bbabf~tplv-a9rns2rl98-image.image?rcl=20251017210930226056FE345E3A5D5FE6&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1763298673&x-signature=KwhqzKfOipIewXR1Keg75bc95ig%3D');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            .nav-link {
+                @apply px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200;
+            }
+            .nav-link.active {
+                @apply text-primary font-medium;
+            }
+            .card {
+                @apply bg-white rounded-lg shadow-md p-6 mb-6;
+            }
+            .btn {
+                @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+            }
+            .btn-primary {
+                @apply bg-primary text-white hover:bg-green-600;
+            }
+            .btn-secondary {
+                @apply bg-secondary text-white hover:bg-blue-600;
+            }
+            .table-info {
+                @apply w-full border-collapse;
+            }
+            .table-info th, .table-info td {
+                @apply border border-gray-300 px-4 py-2;
+            }
+            .table-info th {
+                @apply bg-gray-100 text-left;
+            }
+            
+            /* 侧边栏样式 */
+            .sidebar {
+                @apply bg-white rounded-lg shadow-md transition-all duration-300 ease-in-out overflow-hidden;
+            }
+            .sidebar.collapsed {
+                @apply w-16;
+            }
+            .sidebar:not(.collapsed) {
+                @apply w-64;
+            }
+            .sidebar-content {
+                @apply p-4;
+            }
+            .sidebar-toggle {
+                @apply w-full py-3 px-4 bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center justify-center transition-colors duration-200;
+            }
+            .sidebar-group {
+                @apply mb-4;
+            }
+            .sidebar-group-title {
+                @apply font-bold text-gray-800 text-base py-2 px-3 bg-gray-100 rounded flex justify-between items-center cursor-pointer;
+            }
+            .sidebar-group-content {
+                @apply mt-2;
+            }
+            .sidebar-link {
+                @apply block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors duration-200;
+            }
+            .sidebar-link.active {
+                @apply bg-primary text-white hover:bg-green-600;
+            }
+            .group-toggle {
+                @apply transition-transform duration-200;
+            }
+            .sidebar-group.collapsed .sidebar-group-content {
+                @apply hidden;
+            }
+            .sidebar-group.collapsed .group-toggle {
+                @apply transform rotate-180;
+            }
+            .sidebar.collapsed .sidebar-group-title span {
+                @apply hidden;
+            }
+            .sidebar.collapsed .sidebar-link span {
+                @apply hidden;
+            }
+            .sidebar.collapsed .sidebar-group-title {
+                @apply justify-center px-2;
+            }
+            .sidebar.collapsed .sidebar-link {
+                @apply flex justify-center px-2;
+            }
+            .sidebar-icon {
+                @apply mr-2;
+            }
+            .sidebar.collapsed .sidebar-icon {
+                @apply mr-0;
+            }
+        }
+    </style>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, div, span, a, li, ul, ol, table, th, td, button {
+            font-family: 'SimSun', '宋体', serif !important;
+        }
+    </style>
 </head>
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/lhmtr.icon" alt="绿海铁道" class="h-12 mr-3">
+                    <div>
+                        <a href="index.html" class="text-2xl font-bold text-primary">绿海铁道</a>
+                        <p class="text-sm text-gray-500">Minecraft 架空铁道公司</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-1">
+                    <a href="/index.html" class="nav-link active">首页</a>
+                    <a href="/join.html" class="nav-link">加入我们！</a>
+                    <a href="/server.html" class="nav-link">服务器介绍</a>
+                    <a href="https://lhmtr.miraheze.org" class="nav-link">绿海铁道Wiki</a>
+                    <a href="https://github.com/orgs/LHMTR" class="nav-link">绿海Github</a>
+                    <a href="/staff-bili.html" class="nav-link">请关注我们的B站！</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pt-3 pb-2">
+                <a href="/index.html" class="block py-2 px-4 text-primary font-medium">首页</a>
+                <a href="/join.html" class="block py-2 px-4 text-gray-700 hover:text-primary">加入我们！</a>
+                <a href="/server.html" class="block py-2 px-4 text-gray-700 hover:text-primary">服务器介绍</a>
+                <a href="https://lhmtr.miraheze.org" class="block py-2 px-4 text-gray-700 hover:text-primary">绿海铁道Wiki</a>
+                <a href="https://github.com/orgs/LHMTR" class="block py-2 px-4 text-gray-700 hover:text-primary">绿海铁道Github</a>
+                <a href="/service.html" class="block py-2 px-4 text-gray-700 hover:text-primary">运营信息</a>
+                <a href="/staff-bili.html" class="block py-2 px-4 text-gray-700 hover:text-primary">工作人员的B站</a>
+                <a href="/picture.html" class="block py-2 px-4 text-gray-700 hover:text-primary">服务器精选图片</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- 左侧边栏 -->
+            <aside class="sidebar">
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fa fa-bars sidebar-icon"></i>
+                    <span class="hidden md:inline">折叠侧边栏</span>
+                </button>
+                
+                <div class="sidebar-content">
+                    <!-- 服务器信息分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="server-info">
+                            <div class="flex items-center">
+                                <i class="fa fa-server sidebar-icon"></i>
+                                <span>服务器信息</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
+                        </div>
+                            <a href="/service.html" class="sidebar-link">
+                                <i class="fa fa-list-alt sidebar-icon"></i>
+                                <span>运营信息</span>
+                            </a> 
+                            <a href="/server-introduction.html" class="sidebar-link">
+                                <i class="fa fa-signal sidebar-icon"></i>
+                                <span>服务器简介</span>
+                            </a>
+                            <a href="/server-rules.html" class="sidebar-link">
+                                <i class="fa fa-gavel sidebar-icon"></i>
+                                <span>服务器规则</span>
+                            </a>
+                            <a href="/server-faq.html" class="sidebar-link">
+                                <i class="fa fa-question-circle sidebar-icon"></i>
+                                <span>常见问题</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 建设相关分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="construction">
+                            <div class="flex items-center">
+                                <i class="fa fa-wrench sidebar-icon"></i>
+                                <span>建设相关</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
+                        </div>
+                        <div class="sidebar-group-content">
+                            <a href="/join.html" class="sidebar-link">
+                                <i class="fa fa-user-plus sidebar-icon"></i>
+                                <span>加入建设</span>
+                            </a>
+                            <a href="/building-guide.html" class="sidebar-link">
+                                <i class="fa fa-book sidebar-icon"></i>
+                                <span>建筑指南</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 资源下载分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="resources">
+                            <div class="flex items-center">
+                                <i class="fa fa-download sidebar-icon"></i>
+                                <span>资源下载</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
+                        </div>
+                        <div class="sidebar-group-content">
+                            <a href="/client-download.html" class="sidebar-link">
+                                <i class="fa fa-desktop sidebar-icon"></i>
+                                <span>客户端下载</span>
+                            </a>
+                            <a href="/resource-pack.html" class="sidebar-link">
+                                <i class="fa fa-file-archive-o sidebar-icon"></i>
+                                <span>资源包下载</span>
+                            </a>
+                            <a href="/mods-download.html" class="sidebar-link">
+                                <i class="fa fa-file-archive-o sidebar-icon"></i>
+                                <span>更多模组下载</span>
+                            </a>
+                            <a href="https://github.com/orgs/LHMTR" class="sidebar-link">
+                                <i class="fa fa-github sidebar-icon"></i>
+                                <span>绿海Github</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 外部链接分组 -->
+                    <div class="sidebar-group">
+                        <div class="sidebar-group-title" data-group="external-links">
+                            <div class="flex items-center">
+                                <i class="fa fa-external-link sidebar-icon"></i>
+                                <span>外部链接</span>
+                            </div>
+                            <i class="fa fa-chevron-down group-toggle text-xs"></i>
+                        </div>
+                        <div class="sidebar-group-content">
+                            <a href="https://lhmtr.miraheze.org" class="sidebar-link">
+                                <i class="fa fa-book sidebar-icon"></i>
+                                <span>绿海Wiki</span>
+                            </a>
+                            <a href="/staff-bili.html" class="sidebar-link">
+                                <i class="fa fa-video-camera sidebar-icon"></i>
+                                <span>工作人员B站</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 右侧内容区 -->
+            <div class="flex-1">
+                <!-- 欢迎横幅 -->
+                <section class="bg-minecraft rounded-lg shadow-lg p-8 mb-8 text-center text-white">
+                    <h1 class="text-4xl font-bold mb-4">欢迎来到绿海铁道官网！</h1>
+                    <p class="text-xl mb-6">Minecraft架空铁道公司</p>
+                    <p class="mb-8">欢迎来到绿海铁道公司官方网页！在这里，您可以查阅我们公司的简介、运营信息、工程等。</p>
+                    <p>欢迎您来绿海铁道服务器参观，也欢迎您的加入，期待您的建筑！！</p>
+                </section>
+
+                <!-- 服务器信息表格 -->
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="card">
+                        <h2 class="text-xl font-bold mb-4 text-primary">绿海铁道基本信息</h2>
+                        <table class="table-info">
+                            <tr>
+                                <th>创始人</th>
+                                <td>黑暗乄蘑菇（DarkMasterXPGD）</td>
+                            </tr>
+                            <tr>
+                                <th>工作人员</th>
+                                <td>暂无</td>
+                            </tr>
+                            <tr>
+                                <th>绿海铁道服务器版本</th>
+                                <td>Minecraft Java 1.20.1 （国际版模组服）</td>
+                            </tr>
+                            <tr>
+                                <th>游戏模式</th>
+                                <td>创造模式</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <h2 class="text-xl font-bold mb-4 text-primary">服务器详细信息</h2>
+                        <table class="table-info">
+                            <tr>
+                                <th>中文全称</th>
+                                <td>绿海铁道建筑服务器</td>
+                            </tr>
+                            <tr>
+                                <th>英文全称</th>
+                                <td>LHMTR Creative Server</td>
+                            </tr>
+                            <tr>
+                                <th>服务器分类</th>
+                                <td>城建、铁路、航空、轮渡、缆车等</td>
+                            </tr>
+                            <tr>
+                                <th>是否需要正版</th>
+                                <td>否</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 服务器功能区 -->
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <!-- 创造服入口 -->
+                    <div id="join" class="card bg-gradient-to-br from-green-50 to-blue-50">
+                        <h2 class="text-xl font-bold mb-4 text-primary">加入绿海铁道的建设团队</h2>
+                        <p class="mb-4">点击这里加入我们！不需要正版！</p>
+                        <a href="/server-join.html" class="btn btn-primary inline-flex items-center">
+                            <i class="fa fa-book mr-2"></i>
+                            加入服务器
+                        </a>
+                    </div>
+                    
+                    <!-- 服务器特色 -->
+                    <div id="features" class="card bg-gradient-to-br from-blue-50 to-purple-50">
+                        <h2 class="text-xl font-bold mb-4 text-secondary">服务器特色/建筑/风景</h2>
+                        <p class="mb-4">观赏风景或者看看我们的建筑</p>
+                        <a href="/picture.hmtl" class="btn btn-secondary inline-flex items-center">
+                            <i class="fa fa-image mr-2"></i>服务器特色/建筑/风景图片欣赏
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">绿海铁道</h3>
+                    <p class="text-gray-400">Minecraft 架空铁道公司</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/orgs/LHMTR" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 绿海铁道 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 侧边栏整体折叠功能
+        document.getElementById('sidebar-toggle').addEventListener('click', function() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('collapsed');
+            
+            // 更新按钮文本
+            const span = this.querySelector('span');
+            if (sidebar.classList.contains('collapsed')) {
+                span.textContent = '展开侧边栏';
+            } else {
+                span.textContent = '折叠侧边栏';
+            }
+        });
+
+        // 侧边栏分组折叠功能
+        document.querySelectorAll('.sidebar-group-title').forEach(title => {
+            title.addEventListener('click', function() {
+                const group = this.parentElement;
+                group.classList.toggle('collapsed');
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 如果是移动端，点击后关闭菜单
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // 导航栏激活状态
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
